@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azizur Rahman - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        .hero-bg {
+            background-image: url('cover7.jpeg');
+            background-size: cover; /* Ensure the image covers the whole section */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat;
+            height: 80vh; /* Adjust this value as needed */
+            width: 100%; /* Full width */
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg {
+                height: 60vh; /* Reduce height on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-bg {
+                height: 40vh; /* Further reduce height on very small screens */
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, rgba(0,112,243,1) 0%, rgba(0,204,255,1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-4 px-8">
+            <div class="text-3xl font-bold text-blue-600">Rahman</div>
+            <nav class="hidden md:flex space-x-6 text-lg font-semibold">
+                <a href="#home" class="hover:text-blue-600 transition">Home</a>
+                <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-blue-600 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Drawer Menu -->
+    <div id="drawer" class="fixed inset-0 bg-gray-800 bg-opacity-50 z-50 hidden">
+        <div class="fixed right-0 top-0 bg-white w-64 h-full shadow-lg">
+            <button id="close-button" class="absolute top-4 right-4 text-gray-600 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <nav class="mt-16 space-y-4 px-8 text-lg font-semibold">
+                <a href="#home" class="block hover:text-blue-600 transition">Home</a>
+                <a href="#about" class="block hover:text-blue-600 transition">About</a>
+                <a href="#projects" class="block hover:text-blue-600 transition">Projects</a>
+                <a href="#skills" class="block hover:text-blue-600 transition">Skills</a>
+                <a href="#contact" class="block hover:text-blue-600 transition">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative hero-bg flex flex-col justify-center items-center text-center text-white">
+        <div class="container mx-auto px-6 py-20">
+            <!-- Image -->
+            
+            <!-- Text -->
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+                Hi, I'm <span class="gradient-text">Rahman Azizur</span>
+            </h1>
+            <p class="text-lg mb-6">Backend Engineer | Java | Spring Boot | Python | MySQL</p>
+            <a href="path/to/your-cv.pdf" download class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition">Download My CV</a>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto py-12">
+        <!-- About Section -->
+        <section id="about" class="py-12 bg-gray-50">
+            <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">About Me</h2>
+            <img src="dp2.jpeg" alt="Azizur Rahman" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl mx-auto mb-6">
+            <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+                <p class="text-lg leading-relaxed">I am a backend engineer with a passion for creating robust and scalable web applications. My expertise lies in Java, Spring Boot, Python, and MySQL. I enjoy solving complex problems and continuously improving my skills.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-12 bg-white">
+            <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2">Express.js and React E-commerce</h3>
+                    <p class="mb-4">Developed a full-stack e-commerce application using Express.js and React.</p>
+                    <a href="https://github.com/ayanchyaziz123/Mern-store" target="_blank" class="text-blue-600 hover:underline transition">View on GitHub</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2">Django AI House Price Prediction</h3>
+                    <p class="mb-4">Built an AI-powered house price prediction system using Django and machine learning algorithms.</p>
+                    <a href="https://github.com/ayanchyaziz123/AI-Project-house-price-prediction-project" target="_blank" class="text-blue-600 hover:underline transition">View on GitHub</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2">Algorithm Visualizer with React</h3>
+                    <p class="mb-4">Created a web application to visualize algorithms in action using React.</p>
+                    <a href="https://github.com/ayanchyaziz123/my-algo-expert-with-react-" target="_blank" class="text-blue-600 hover:underline transition">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-12 bg-gray-50">
+            <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg text-lg">Python</span>
+                <span class="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg text-lg">JavaScript</span>
+                <span class="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg text-lg">Java</span>
+                <span class="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg text-lg">Spring Boot</span>
+                <span class="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg text-lg">MySQL</span>
+                <span class="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg text-lg">React</span>
+                <span class="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg text-lg">Node.js</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 bg-white">
+            <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Contact</h2>
+            <form class="max-w-xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <input type="text" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Name">
+                </div>
+                <div class="mb-4">
+                    <input type="email" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Email">
+                </div>
+                <div class="mb-4">
+                    <textarea class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Message"></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- JavaScript to handle drawer menu -->
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function () {
+            document.getElementById('drawer').classList.remove('hidden');
+        });
+
+        document.getElementById('close-button').addEventListener('click', function () {
+            document.getElementById('drawer').classList.add('hidden');
+        });
+
+        // Close the drawer if clicking outside of it
+        document.addEventListener('click', function (event) {
+            var drawer = document.getElementById('drawer');
+            var isClickInside = drawer.contains(event.target) || document.getElementById('menu-button').contains(event.target);
+
+            if (!isClickInside) {
+                drawer.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
