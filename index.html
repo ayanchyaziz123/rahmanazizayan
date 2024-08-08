@@ -9,7 +9,7 @@
     <style>
         /* Custom Styles */
         .hero-bg {
-            background-image: url('cover7.jpeg');
+            background-image: url('assets/images/cover7.jpeg');
             background-size: cover; 
             background-position: center; 
             background-repeat: no-repeat;
@@ -142,6 +142,7 @@
                 <a href="#about" class="hover:text-blue-600 transition nav-link">About</a>
                 <a href="#projects" class="hover:text-blue-600 transition nav-link">Projects</a>
                 <a href="#skills" class="hover:text-blue-600 transition nav-link">Skills</a>
+              
                 <a href="#contact" class="hover:text-blue-600 transition nav-link">Contact</a>
             </nav>
             <div class="md:hidden">
@@ -167,6 +168,7 @@
                 <a href="#about" class="block hover:text-blue-300 transition">About</a>
                 <a href="#projects" class="block hover:text-blue-300 transition">Projects</a>
                 <a href="#skills" class="block hover:text-blue-300 transition">Skills</a>
+    
                 <a href="#contact" class="block hover:text-blue-300 transition">Contact</a>
             </nav>
         </div>
@@ -187,63 +189,51 @@
     <!-- Main Content Area -->
     <main class="container mx-auto py-12">
         <!-- About Section -->
-       <!-- About Section -->
-<section id="about" class="py-12 bg-gray-50">
-    <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">About Me</h2>
-    <div class="text-center mb-6">
-        <img src="dp2.jpeg" alt="Azizur Rahman" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl mx-auto">
-        <div class="flex justify-center space-x-6 mt-4">
-            <a href="https://github.com/your-github-username" target="_blank" class="text-gray-600 hover:text-blue-600">
-                <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a href="mailto:your-email@example.com" class="text-gray-600 hover:text-blue-600">
-                <i class="fas fa-envelope fa-2x"></i>
-            </a>
-            <a href="https://www.instagram.com/your-instagram-username" target="_blank" class="text-gray-600 hover:text-blue-600">
-                <i class="fab fa-instagram fa-2x"></i>
-            </a>
-        </div>
-    </div>
+        <section id="about" class="py-12 bg-gray-50">
+            <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">About Me</h2>
+            <div class="text-center mb-6">
+                <img src="assets/images/dp2.jpeg" alt="Azizur Rahman" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl mx-auto">
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="https://github.com/your-github-username" target="_blank" class="text-gray-600 hover:text-blue-600">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="mailto:your-email@example.com" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/your-instagram-username" target="_blank" class="text-gray-600 hover:text-blue-600">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                </div>
+            </div>
 
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-        <p class="text-lg leading-relaxed mb-6">I am a backend engineer with a passion for creating robust and scalable web applications. My expertise lies in Java, Spring Boot, Python, and MySQL. I enjoy solving complex problems and continuously improving my skills.</p>
-        
-        <!-- Education Section -->
-        <h3 class="text-3xl font-extrabold mb-4 text-blue-600">Education</h3>
-        <div class="mb-4">
-            <h4 class="text-2xl font-semibold">Master of Science in Computer Science</h4>
-            <p class="text-lg">Queens College, New York, present</p>
-        </div>
-        <div class="mb-4">
-            <h4 class="text-2xl font-semibold">Bachelor of Science in Computer Science and engineering</h4>
-            <p class="text-lg">Metropolitan University, 2018 - 2012</p>
-            <p class="text-md text-gray-600">Graduated with honors, focusing on software engineering and data structures.</p>
-        </div>
-        
-    </div>
-</section>
+            <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+                <p class="text-lg leading-relaxed mb-6">I am a backend engineer with a passion for creating robust and scalable web applications. My expertise lies in Java, Spring Boot, Python, and MySQL. With a background in software development and a keen interest in learning new technologies, I am always looking for opportunities to improve and expand my skill set.</p>
+                <p class="text-lg leading-relaxed mb-6">Throughout my career, I have worked on various projects that have helped me gain valuable experience in designing and implementing efficient backend systems. I am committed to delivering high-quality solutions and continuously enhancing my knowledge to stay updated with industry trends.</p>
+                <p class="text-lg leading-relaxed mb-6">In my free time, I enjoy exploring new programming languages, working on personal projects, and contributing to open-source communities. I believe in the power of collaboration and am always excited to connect with like-minded professionals to share ideas and insights.</p>
+            </div>
+        </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-12">
+        <section id="projects" class="py-12 bg-gray-50">
             <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg card transition transform hover:scale-105">
-                    <h3 class="text-2xl font-bold mb-2">E-commerce Platform</h3>
-                    <p class="text-lg mb-4">Built with Express.js and React, this platform provides a seamless shopping experience with integrated payment processing.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">View Project</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- E-commerce Project -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card">
+                    <h3 class="text-2xl font-bold mb-2 text-blue-600">E-commerce Website</h3>
+                    <p class="text-lg mb-4">Built with Express.js and React</p>
+                    <a href="https://github.com/your-github-username/e-commerce" target="_blank" class="text-blue-600 hover:underline">View Project</a>
                 </div>
-                <!-- Project 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg card transition transform hover:scale-105">
-                    <h3 class="text-2xl font-bold mb-2">AI House Price Prediction</h3>
-                    <p class="text-lg mb-4">A Django-based web app that predicts house prices using machine learning algorithms.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">View Project</a>
+                <!-- AI House Price Prediction Project -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card">
+                    <h3 class="text-2xl font-bold mb-2 text-blue-600">AI House Price Prediction</h3>
+                    <p class="text-lg mb-4">Developed with Django and Python</p>
+                    <a href="https://github.com/your-github-username/ai-house-price-prediction" target="_blank" class="text-blue-600 hover:underline">View Project</a>
                 </div>
-                <!-- Project 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg card transition transform hover:scale-105">
-                    <h3 class="text-2xl font-bold mb-2">Algorithm Visualizer</h3>
-                    <p class="text-lg mb-4">A React application that visualizes various algorithms in a user-friendly manner.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">View Project</a>
+                <!-- Algorithm Visualizer Project -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card">
+                    <h3 class="text-2xl font-bold mb-2 text-blue-600">Algorithm Visualizer</h3>
+                    <p class="text-lg mb-4">Created with React</p>
+                    <a href="https://github.com/your-github-username/algorithm-visualizer" target="_blank" class="text-blue-600 hover:underline">View Project</a>
                 </div>
             </div>
         </section>
@@ -251,119 +241,74 @@
         <!-- Skills Section -->
         <section id="skills" class="py-12 bg-gray-50">
             <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Skills</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-                <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">Java</li>
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">Spring Boot</li>
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">Python</li>
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">Django</li>
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">JavaScript</li>
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">React</li>
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">MySQL</li>
-                    <li class="bg-blue-600 text-white text-center py-2 rounded-lg shadow-md skills-item transition transform hover:scale-105">HTML & CSS</li>
-                </ul>
+            <div class="flex flex-wrap justify-center space-x-4">
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">Java</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">Spring Boot</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">Python</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">MySQL</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">JavaScript</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">React</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">Django</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">Git</span>
+                <span class="skills-item bg-gray-200 text-gray-800 py-2 px-4 rounded-full m-2 hover:bg-blue-600 hover:text-white transition">HTML & CSS</span>
             </div>
         </section>
-        <section id="photos" class="py-12">
-            <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Hello Photos</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                <!-- Example Photo -->
-                <div class="relative overflow-hidden">
-                    <img src="p1.jpeg" alt="Photography" class="w-full h-50 object-cover">
-                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center text-center py-2">
-                        <p class="text-xl text-white">Ohio, USA</p>
-                    </div>
-                </div>
-                <!-- Add more photos as needed -->
-                <div class="relative overflow-hidden">
-                    <img src="p2.jpeg" alt="Photography" class="w-full h-50 object-cover">
-                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center text-center py-2">
-                        <p class="text-xl text-white">New York, USA</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden">
-                    <img src="p4.jpeg" alt="Photography" class="w-full h-50 object-cover">
-                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center text-center py-2">
-                        <p class="text-xl text-white">New Jersey, USA</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden">
-                    <img src="p5.jpeg" alt="Photography" class="w-full h-50 object-cover">
-                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center text-center py-2">
-                        <p class="text-xl text-white">South Carolina, USA</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden">
-                    <img src="p3.jpeg" alt="Photography" class="w-full h-50 object-cover">
-                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center text-center py-2">
-                        <p class="text-xl text-white">New York, USA</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden">
-                    <img src="p6.jpeg" alt="Photography" class="w-full h-50 object-cover">
-                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center text-center py-2">
-                        <p class="text-xl text-white">Sylhet, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden">
-                    <img src="p7.jpeg" alt="Photography" class="w-full h-50 object-cover">
-                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center text-center py-2">
-                        <p class="text-xl text-white">Los Angeles, USA</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      
+ <!-- Contact Section -->
+<section id="contact" class="py-12 bg-gray-50">
+    <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Contact</h2>
+    <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <div class="mb-6">
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">Mobile Number</h3>
+            <p class="text-lg text-gray-600">+1 347 6696071</p>
+        </div>
+        <div class="mb-6">
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">Email</h3>
+            <p class="text-lg text-gray-600"><a href="mailto:azizurusa22@gmail.com" class="text-blue-600 hover:underline">azizurusa22@gmail.com</a></p>
+        </div>
+        <div class="mb-6">
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">LinkedIn</h3>
+            <p class="text-lg text-gray-600"><a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/your-linkedin-username</a></p>
+        </div>
+        <div class="mb-6">
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">GitHub</h3>
+            <p class="text-lg text-gray-600"><a href="https://github.com/your-github-username" target="_blank" class="text-blue-600 hover:underline">github.com/your-github-username</a></p>
+        </div>
+        <div class="mb-6">
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">Instagram</h3>
+            <p class="text-lg text-gray-600"><a href="https://www.instagram.com/your-instagram-username" target="_blank" class="text-blue-600 hover:underline">instagram.com/your-instagram-username</a></p>
+        </div>
+    </div>
+</section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-12">
-            <h2 class="text-4xl font-extrabold mb-8 text-blue-600 text-center">Contact</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-                <form action="#" method="POST">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="name" class="block text-lg font-semibold mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-lg font-semibold mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <label for="message" class="block text-lg font-semibold mb-2">Message</label>
-                        <textarea id="message" name="message" rows="6" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required></textarea>
-                    </div>
-                    <div class="mt-6 text-center">
-                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-4 text-center">
-        <p class="text-sm">&copy; 2024 Azizur Rahman. All Rights Reserved.</p>
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Rahman Azizur. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Script for Drawer Menu -->
     <script>
-        document.getElementById('menu-button').addEventListener('click', function () {
-            document.getElementById('drawer').classList.toggle('hidden');
+        const menuButton = document.getElementById('menu-button');
+        const closeButton = document.getElementById('close-button');
+        const drawer = document.getElementById('drawer');
+
+        menuButton.addEventListener('click', () => {
+            drawer.classList.remove('hidden');
         });
-        document.getElementById('close-button').addEventListener('click', function () {
-            document.getElementById('drawer').classList.add('hidden');
+
+        closeButton.addEventListener('click', () => {
+            drawer.classList.add('hidden');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === drawer) {
+                drawer.classList.add('hidden');
+            }
         });
     </script>
 </body>
