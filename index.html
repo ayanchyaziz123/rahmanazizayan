@@ -60,6 +60,9 @@
 #sidebar.hidden {
     transform: translateX(-100%);
 }
+.shadow {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adjust shadow properties as needed */
+}
 
     </style>
 </head>
@@ -67,7 +70,7 @@
 <body class="font-sans leading-relaxed">
 
    <!-- Navbar -->
-<nav class="bg-white text-gray-800 p-4 shadow-md sticky top-0 z-50">
+   <nav id="navbar" class="text-gray-800 p-4 sticky top-0 z-50 transition-shadow duration-300 ease-in-out" style="background-color: #f8f6f3;">
     <div class="container mx-auto flex justify-between items-center">
         <div class="text-xl font-bold">
             <a href="index.html" class="hover:underline transition duration-300 ease-in-out" style="color: #996232;">Rahman Azizur</a>
@@ -90,6 +93,7 @@
     </div>
 </nav>
 
+
 <!-- Sidebar -->
 <!-- Sidebar -->
 <div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-75 transform -translate-x-full transition-transform duration-300 ease-in-out">
@@ -111,7 +115,7 @@
 
 
 
-    <div class="bg-gray-100 py-8">
+    <div class="py-8" style="background-color: #f8f6f3;">
         <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:space-x-8">
 
             <!-- Cover Photo on the Left Side -->
