@@ -9,12 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
 
     <style>
         html {
-    scroll-behavior: smooth;
-}
+            scroll-behavior: smooth;
+        }
+
         /* Custom styles for the slider */
         .slider-images {
             display: flex;
@@ -35,83 +36,100 @@
             color: #cf6000;
             /* Use your custom color */
         }
+
         .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* Custom styles for the sidebar */
-#sidebar {
-    width: 250px; /* Set the width of the sidebar */
-    z-index: 100; /* Make sure the sidebar is above other content */
-}
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* Add transition effects */
-.transition-transform {
-    transition: transform 0.3s ease-in-out;
-}
+        /* Custom styles for the sidebar */
+        #sidebar {
+            width: 250px;
+            /* Set the width of the sidebar */
+            z-index: 100;
+            /* Make sure the sidebar is above other content */
+        }
 
-/* Hide the sidebar by default */
-#sidebar.hidden {
-    transform: translateX(-100%);
-}
-.shadow {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adjust shadow properties as needed */
-}
+        /* Add transition effects */
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
 
+        /* Hide the sidebar by default */
+        #sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .shadow {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Adjust shadow properties as needed */
+        }
+        #contact .flex-grow {
+        height: calc(100vh - 200px); /* Adjust 200px based on height of header and spacing */
+    }
     </style>
 </head>
 
 <body class="font-sans leading-relaxed">
 
-   <!-- Navbar -->
-   <nav id="navbar" class="text-gray-800 p-4 sticky top-0 z-50 transition-shadow duration-300 ease-in-out" style="background-color: #f8f6f3;">
-    <div class="container mx-auto flex justify-between items-center">
-        <div class="text-xl font-bold">
-            <a href="index.html" class="hover:underline transition duration-300 ease-in-out" style="color: #996232;">Rahman Azizur</a>
+    <!-- Navbar -->
+    <nav id="navbar" class="text-gray-800 p-4 sticky top-0 z-50 transition-shadow duration-300 ease-in-out"
+        style="background-color: #f8f6f3;">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">
+                <a href="index.html" class="hover:underline transition duration-300 ease-in-out"
+                    style="color: #996232;">Rahman Azizur</a>
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#biography" class="nav-link">Biography</a>
+                <a href="#education" class="nav-link">Educations</a>
+                <a href="#experience" class="nav-link">Experiences</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="text-white text-xl sidebar-link">Contact</a>
+            </div>
+            <!-- Hamburger Menu for Mobile -->
+            <div class="md:hidden">
+                <button id="sidebarToggle" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <div class="hidden md:flex space-x-4">
-            <a href="#biography" class="nav-link">Biography</a>
-            <a href="#education" class="nav-link">Educations</a>
-            <a href="#experience" class="nav-link">Experiences</a>
-            <a href="#achievements" class="nav-link">Achievements</a>
-            <a href="#projects" class="nav-link">Projects</a>
-        </div>
-        <!-- Hamburger Menu for Mobile -->
-        <div class="md:hidden">
-            <button id="sidebarToggle" class="text-gray-800 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+    </nav>
+
+
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="fixed inset-0 bg-gray-800 bg-opacity-75 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-end p-4">
+            <button id="closeSidebar" class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
                 </svg>
             </button>
         </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-4">
+            <a href="#biography" class="text-white text-xl sidebar-link">Biography</a>
+            <a href="#education" class="text-white text-xl sidebar-link">Education</a>
+            <a href="#experience" class="text-white text-xl sidebar-link">Experience</a>
+            <a href="#achievements" class="text-white text-xl sidebar-link">Achievement</a>
+            <a href="#projects" class="text-white text-xl sidebar-link">Project</a>
+            <a href="#contact" class="text-white text-xl sidebar-link">Contact</a>
+        </div>
     </div>
-</nav>
-
-
-<!-- Sidebar -->
-<!-- Sidebar -->
-<div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-75 transform -translate-x-full transition-transform duration-300 ease-in-out">
-    <div class="flex justify-end p-4">
-        <button id="closeSidebar" class="text-white">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-    </div>
-    <div class="flex flex-col items-center justify-center h-full space-y-4">
-        <a href="#biography" class="text-white text-xl sidebar-link">Biography</a>
-        <a href="#education" class="text-white text-xl sidebar-link">Educations</a>
-        <a href="#experience" class="text-white text-xl sidebar-link">Experiences</a>
-        <a href="#achievements" class="text-white text-xl sidebar-link">Achievements</a>
-        <a href="#projects" class="text-white text-xl sidebar-link">Projects</a>
-    </div>
-</div>
 
 
 
@@ -163,7 +181,7 @@
 
 
         <!-- About Me Section -->
-        <section id="biography" class="mb-12 mt-20 fade-in" >
+        <section id="biography" class="mb-12 mt-20 fade-in">
             <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Biography</h2>
             <p class="text-gray-700 leading-relaxed">
                 <span class="text-2xl">Hi there!</span> I’m Rahman Azizur Ayan, a dedicated software engineer
@@ -245,7 +263,8 @@
 
                 <!-- Experience 4: Assistant Manager -->
                 <div class="bg-white">
-                    <h3 class="text-xl font-bold mb-2" style="color: #996232;">Assistant Manager - Kennedy Fried Chicken & Pizza
+                    <h3 class="text-xl font-bold mb-2" style="color: #996232;">Assistant Manager - Kennedy Fried Chicken
+                        & Pizza
                     </h3>
                     <p class="text-gray-700 mb-2">Jan 2023 - Aug 2023 · Part-time</p>
                     <p class="text-gray-700 mb-4">Managed day-to-day operations, supervised staff, and ensured excellent
@@ -262,7 +281,7 @@
 
         <!-- Achievements Section -->
         <section id="achievements" class="mb-12 fade-in">
-            <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Achievements</h2>
+            <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Achievement</h2>
             <div class="flex justify-center items-center space-x-6">
                 <!-- LeetCode 100 Days Badge -->
                 <div class="text-center">
@@ -305,7 +324,7 @@
 
         <!-- Projects Section -->
         <section id="projects " class="fade-in">
-            <h2 class="text-3xl font-extrabold mb-6 text-center" style="color: #996232;">Projects</h2>
+            <h2 class="text-3xl font-extrabold mb-6 text-center" style="color: #996232;">Project</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Project 1 with Slider -->
@@ -567,7 +586,8 @@
                             class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-full hover:bg-gray-900"
                             onclick="nextSlide(this)">&#10095;</button>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 mt-4" style="color: #996232;">Interactive Algorithm Visualizer</h3>
+                    <h3 class="text-xl font-bold mb-2 mt-4" style="color: #996232;">Interactive Algorithm Visualizer
+                    </h3>
                     <p class="text-gray-700 mb-4">
                         A React application that visually demonstrates various data structures and algorithms, providing
                         an interactive learning experience. Key features include:
@@ -601,6 +621,34 @@
 
             </div>
         </section>
+    
+        <!-- Contact Section -->
+<section id="contact" class="min-h-screen mb-12 mt-20 fade-in flex flex-col items-center">
+    <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Contact</h2>
+    
+    <!-- Contact Information -->
+    <div class="text-center mb-6">
+        <p class="text-lg font-medium text-gray-700">Email: <a href="mailto:azizusa22@gmail.com" class="text-yellow-600 hover:underline">azizusa22@gmail.com</a></p>
+        <p class="text-lg font-medium text-gray-700">Phone: <a href="tel:+347-669-6071" class="text-yellow-600 hover:underline">+347-669-6071</a></p>
+    </div>
+    
+    <!-- Full Height Google Form Embed -->
+    <div class="flex-grow w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSc96vHD2trnqFqdCFH1vGaON-r8zUo-2NgendkDn6SNNB8OZA/viewform?usp=sf_link"
+            class="w-full h-full"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0">
+            Loading…
+        </iframe>
+    </div>
+</section>
+
+<!-- Tailwind CSS or custom CSS styling -->
+
+
+
     </div>
 
     <!-- Footer -->
@@ -650,9 +698,9 @@
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('div[id]');
             const navLinks = document.querySelectorAll('.nav-link');
-    
+
             let currentSection = '';
-    
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -660,7 +708,7 @@
                     currentSection = section.getAttribute('id');
                 }
             });
-    
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${currentSection}`) {
@@ -671,12 +719,12 @@
     </script>
     <script>
         const fadeIns = document.querySelectorAll('.fade-in');
-    
+
         const observerOptions = {
             root: null, // Use the viewport as the root
             threshold: 0.1 // Trigger when 10% of the element is visible
         };
-    
+
         const observerCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -685,9 +733,9 @@
                 }
             });
         };
-    
+
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
+
         fadeIns.forEach(fadeIn => {
             observer.observe(fadeIn); // Observe each fade-in element
         });
@@ -702,24 +750,24 @@
         const sidebarToggle = document.getElementById('sidebarToggle');
         const closeSidebar = document.getElementById('closeSidebar');
         const sidebarLinks = document.querySelectorAll('.sidebar-link'); // Select all sidebar links
-    
+
         // Open sidebar
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.remove('-translate-x-full');
         });
-    
+
         // Close sidebar when close button is clicked
         closeSidebar.addEventListener('click', () => {
             sidebar.classList.add('-translate-x-full');
         });
-    
+
         // Close sidebar when clicking outside of it
         sidebar.addEventListener('click', (event) => {
             if (event.target === sidebar) {
                 sidebar.classList.add('-translate-x-full');
             }
         });
-    
+
         // Close sidebar when any link is clicked
         sidebarLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -727,11 +775,11 @@
             });
         });
     </script>
-    
-    
-    
-    
-    
+
+
+
+
+
 
 
 </body>
