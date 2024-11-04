@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django & React E-commerce Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 80vh; /* Increased carousel height to 60% of the viewport height */
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%; /* Ensure the images fill the container */
+        }
+
+        .carousel-image {
+            min-width: 100%;
+            height: 100%; /* Set the height of the images */
+            object-fit: contain; /* Ensures images fit within the area without cropping */
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <div class="container mx-auto p-2">
+        <h1 class="text-4xl font-bold mb-4 text-center mt-4" style="color: #996232;">Django & React E-commerce Platform</h1>
+
+        <!-- Back Button -->
+        <button onclick="goBack()" class="mb-4 text-white bg-gray-500 hover:bg-gray-700 px-4 py-2 rounded">
+            Back
+        </button>
+
+        <div class="bg-white p-3">
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="https://raw.githubusercontent.com/ayanchyaziz123/final-year-project-main/master/screenshoot/1.Home%20page.png"
+                        alt="Project Slide 1" class="carousel-image rounded">
+                    <img src="https://github.com/ayanchyaziz123/final-year-project-main/raw/master/screenshoot/2.Product%20page.png?raw=true"
+                        alt="Project Slide 2" class="carousel-image rounded">
+                    <img src="https://github.com/ayanchyaziz123/final-year-project-main/raw/master/screenshoot/3.Compare%202%20laptops.png?raw=true"
+                        alt="Project Slide 3" class="carousel-image rounded">
+                </div>
+                <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                    onclick="prevSlide()">&#10094;</button>
+                <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                    onclick="nextSlide()">&#10095;</button>
+            </div>
+
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800 mt-6">Project Overview</h2>
+            <p class="text-gray-700 mb-4">
+                This comprehensive e-commerce platform is designed using Django for robust backend functionality and React for a modern, dynamic frontend. It incorporates an array of features tailored to provide an optimal shopping experience.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Key Features:</h3>
+            <ul class="list-disc list-inside mb-4 text-gray-700">
+                <li>Secure user authentication using Django Rest Framework.</li>
+                <li>Personalized product recommendations through machine learning algorithms implemented with Pandas, Scikit-learn, and Numpy.</li>
+                <li>Interactive and responsive user interface designed with React for seamless browsing.</li>
+                <li>Backend logic built with Django to efficiently manage complex processes and data transactions.</li>
+            </ul>
+
+            <p class="text-gray-700 mb-4">
+                The integration of these advanced features ensures that users have a personalized and secure shopping journey, while the combination of Django and React facilitates a high level of performance and scalability.
+            </p>
+
+            <div class="flex space-x-4 mt-4">
+                <a target="_blank" href="https://github.com/ayanchyaziz123/final-year-project-main"
+                    class="text-blue-500 hover:underline flex items-center space-x-2">
+                    <svg class="w-5 h-5 fill-current text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12 0C5.371 0 0 5.371 0 12c0 5.304 3.438 9.799 8.205 11.387.599.111.82-.261.82-.581 0-.286-.01-1.043-.015-2.048-3.338.725-4.043-1.609-4.043-1.609-.545-1.387-1.332-1.756-1.332-1.756-1.089-.744.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.494.997.109-.774.419-1.305.762-1.606-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.237-3.221-.124-.305-.536-1.526.118-3.176 0 0 1.009-.322 3.305 1.23.96-.267 1.989-.4 3.012-.404 1.023.004 2.052.137 3.013.404 2.296-1.552 3.304-1.23 3.304-1.23.655 1.65.243 2.871.119 3.176.77.84 1.236 1.911 1.236 3.221 0 4.608-2.805 5.621-5.476 5.92.431.372.815 1.107.815 2.229 0 1.608-.015 2.906-.015 3.305 0 .321.22.694.825.576C20.565 21.797 24 17.303 24 12c0-6.629-5.371-12-12-12z" />
+                    </svg>
+                    <span>View on GitHub</span>
+                </a>
+
+                <a target="_blank" href="https://www.youtube.com/watch?v=qfwnfB54NKU"
+                    class="text-red-500 hover:underline flex items-center space-x-2">
+                    <svg class="w-5 h-5 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M23.499,6.203c-0.231-0.867-0.906-1.542-1.773-1.773C20.12,4.11,12,4.11,12,4.11s-8.12,0-9.727,0.32 C1.406,4.651,0.731,5.326,0.499,6.203C0.18,7.81,0.18,12,0.18,12s0,4.19,0.319,5.797c0.231,0.867,0.906,1.542,1.773,1.773 C3.88,19.89,12,19.89,12,19.89s8.12,0,9.727-0.32c0.867-0.231,1.542-0.906,1.773-1.773C23.82,16.19,23.82,12,23.82,12 S23.82,7.81,23.499,6.203z M9.545,15.568V8.432L15.568,12L9.545,15.568z" />
+                    </svg>
+                    <span>View on YouTube</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back(); // Navigate to the previous page in history
+        }
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.carousel-images');
+            const totalSlides = document.querySelectorAll('.carousel-image').length;
+
+            // Ensure the index wraps around
+            currentSlide = (index + totalSlides) % totalSlides;
+            const offset = -currentSlide * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Show the first slide initially
+        showSlide(currentSlide);
+    </script>
+</body>
+
+</html>

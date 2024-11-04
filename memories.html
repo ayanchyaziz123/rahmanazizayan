@@ -4,57 +4,783 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories - RahmanBlog</title>
+    <title>About Me - RahmanBlog</title>
     <link rel="icon" href="/image/fav.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom styles for the slider */
+        .slider-images {
+            display: flex;
+        }
+
+        .slider-images img {
+            width: 100%;
+            height: 450px;
+            /* Ensure all images have a fixed height */
+            object-fit: cover;
+            /* Ensures all images are uniformly fitted */
+            flex-shrink: 0;
+        }
+
+        .active {
+            font-weight: bold;
+            /* Make the active link bold */
+            color: #cf6000;
+            /* Use your custom color */
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom styles for the sidebar */
+        #sidebar {
+            width: 250px;
+            /* Set the width of the sidebar */
+            z-index: 100;
+            /* Make sure the sidebar is above other content */
+        }
+
+        /* Add transition effects */
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hide the sidebar by default */
+        #sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .shadow {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Adjust shadow properties as needed */
+        }
+        #contact .flex-grow {
+        height: calc(100vh - 200px); /* Adjust 200px based on height of header and spacing */
+    }
+    </style>
 </head>
 
 <body class="font-sans leading-relaxed">
 
     <!-- Navbar -->
-    <nav class="bg-white text-gray-800 p-4 shadow-md sticky top-0 z-50">
+    <nav id="navbar" class="text-gray-800 p-4 sticky top-0 z-50 transition-shadow duration-300 ease-in-out"
+        style="background-color: #f8f6f3;">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-xl font-bold">
-                <a href="index.html" class="hover:underline text-blue-600 transition duration-300 ease-in-out">Rahman</a>
+                <a href="index.html" class="hover:underline transition duration-300 ease-in-out"
+                    style="color: #996232;">Rahman Azizur</a>
             </div>
-            <div class="hidden md:flex space-x-4">
-                <a href="blogs.html" class="nav-link">Blogs</a>
-                <a href="memories.html" class="nav-link hover:text-blue-500">Memories</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#biography" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 transition duration-200 ease-in-out">Biography</a>
+                <a href="#education" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 transition duration-200 ease-in-out">Educations</a>
+                <a href="#experience" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 transition duration-200 ease-in-out">Experiences</a>
+                <a href="#achievements" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 transition duration-200 ease-in-out">Achievements</a>
+                <a href="#projects" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 transition duration-200 ease-in-out">Projects</a>
+                <a href="#contact" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 transition duration-200 ease-in-out">Contact</a>
+            </div>
+            
+            <!-- Hamburger Menu for Mobile -->
+            <div class="md:hidden">
+                <button id="sidebarToggle" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container mx-auto mt-6 p-4 sm:p-6 border max-w-5xl">
 
-        <h1 class="text-2xl font-bold mb-4">My Memories</h1>
-
-        <!-- Memory Post 1 -->
-        <div class="bg-white p-3 mb-4 flex flex-col md:flex-row">
-            <img src="assets/images/cover.jpeg" alt="Memory Description" class="w-full md:w-1/3 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-4">
-            <div class="flex-1">
-                <h2 class="text-xl font-semibold mb-2">A Day at the Beach</h2>
-                <p class="text-gray-500 mb-1">Date: <span class="font-medium">July 15, 2024</span></p>
-                <p class="text-gray-700 mb-4">This day was filled with sunshine and laughter as we spent time relaxing on the beach, playing games, and enjoying the beautiful scenery...</p>
-                <a href="memories/memory1.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Read More</a>
-            </div>
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="fixed inset-0 bg-gray-800 bg-opacity-75 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-end p-4">
+            <button id="closeSidebar" class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
         </div>
-
-        <!-- Memory Post 2 -->
-        <div class="bg-white p-3 mb-4 flex flex-col md:flex-row">
-            <img src="assets/images/memory2.jpg" alt="Memory Description" class="w-full md:w-1/3 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-4">
-            <div class="flex-1">
-                <h2 class="text-xl font-semibold mb-2">Graduation Day</h2>
-                <p class="text-gray-500 mb-1">Date: <span class="font-medium">June 10, 2024</span></p>
-                <p class="text-gray-700 mb-4">Graduation day was a milestone in my life. Surrounded by friends and family, it was a day to celebrate hard work and achievements...</p>
-                <a href="memories/memory2.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Read More</a>
-            </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-4">
+            <a href="#biography" class="text-white text-xl sidebar-link">Biography</a>
+            <a href="#education" class="text-white text-xl sidebar-link">Education</a>
+            <a href="#experience" class="text-white text-xl sidebar-link">Experience</a>
+            <a href="#achievements" class="text-white text-xl sidebar-link">Achievement</a>
+            <a href="#projects" class="text-white text-xl sidebar-link">Project</a>
+            <a href="#contact" class="text-white text-xl sidebar-link">Contact</a>
         </div>
-
-        <!-- Add more memory posts as needed -->
     </div>
 
-</body>
 
-</html>
+
+    <div class="py-8" style="background-color: #f8f6f3;">
+        <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:space-x-8">
+
+            <!-- Cover Photo on the Left Side -->
+            <div class="w-full md:w-1/2 h-96 md:h-[700px] bg-cover bg-center rounded-sm relative"
+                style="background-image: url('./assets/images/cover.jpeg');">
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent rounded-sm">
+                </div>
+            </div>
+
+            <!-- Text and Links on the Right Side -->
+            <div class="w-full md:w-1/2 mt-4 md:mt-0 text-gray-900 text-center md:text-left space-y-4 p-6">
+                <h1 class="text-3xl md:text-4xl font-bold" style="color: #996232;">Rahman Azizur</h1>
+                <p class="text-lg">SDE Engineer | Java | JS | Python | MySQL</p>
+                <p class="text-md italic">Passionate about AI and Machine Learning</p>
+                <a href="https://leetcode.com/u/Eclipsewolf28/"
+                    class="text-lg font-bold text-yellow-500 underline">Leetcoder</a>
+
+                <!-- Social Links -->
+                <div class="mt-4 flex justify-center md:justify-start space-x-4">
+                    <a href="https://www.linkedin.com/in/azizur-rahman-720636165/"
+                        class="text-gray-700 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/ayanchyaziz123" class="text-gray-700 hover:text-gray-900"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="mailto:azizurusa22@gmail.com" class="text-gray-700 hover:text-red-700" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-2 p-4 sm:p-6  max-w-6xl">
+
+
+
+
+
+        <!-- About Me Section -->
+        <section id="biography" class="mb-12 mt-20 fade-in">
+            <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Biography</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <span class="text-2xl">Hi there!</span> I’m Rahman Azizur Ayan, a dedicated software engineer
+                with a passion for the cosmos. With a background in Computer Science and a love for both coding and
+                astronomy, I created this blog to document my journey and share insights at the crossroads of these two
+                exciting fields.
+            </p>
+            <p class="text-gray-700 leading-relaxed mt-4">My fascination with technology began at 17 years old. Since
+                then, I’ve been driven by a desire to innovate and explore, whether it's through developing software
+                solutions or delving into the mysteries of the universe.
+            </p>
+            <p class="text-gray-700 leading-relaxed mt-4">Beyond coding and stargazing, I am always on the lookout for
+                new experiences and learning opportunities. Through this blog, I hope to connect with fellow enthusiasts
+                and inspire others who share a passion for technology and the stars.
+            </p>
+        </section>
+
+
+
+
+
+        <!-- Education Section -->
+        <section id="education" class="py-12 fade-in">
+            <h2 class="text-3xl font-extrabold mb-6 text-center" style="color: #996232;">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Study 1 -->
+                <!-- Study 2 -->
+                <div class="bg-white">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Masterlogo.png"
+                        alt="Indiana Wesleyan University" class="w-32 h-20 mb-4 rounded">
+                    <h3 class="text-xl font-bold mb-2" style="color: #996232;">Master of Science in Computer Science and
+                        Artificial Intelligence</h3>
+                    <p class="text-gray-700 mb-2">Indiana Wesleyan University</p>
+                    <p class="text-gray-500 mb-4">2024 - Present</p>
+                    <p class="text-gray-700">Advanced coursework in software architecture, machine learning, and
+                        cloud-based solutions. Engaged in research and capstone projects.</p>
+                </div>
+                <div class="bg-white">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/MU_Logo.svg"
+                        alt="Metropolitan University" class="w-32 h-20 mb-4 rounded">
+                    <h3 class="text-xl font-bold mb-2" style="color: #996232;">Bachelor of Science in Computer Science
+                        and
+                        Engineering</h3>
+                    <p class="text-gray-700 mb-2">Metropolitan University</p>
+                    <p class="text-gray-500 mb-4">2018 - 2022</p>
+                    <p class="text-gray-700">Specialized in backend development and software engineering, with a focus
+                        on programming languages, algorithms, and database management.</p>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+        <!-- Experience Section -->
+        <!-- Experience Section -->
+        <section id="experience" class="py-12 fade-in">
+            <h2 class="text-3xl font-extrabold mb-6 text-center" style="color: #996232;">Experience</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Experience 1 -->
+
+
+                <!-- Experience 3: Coding Mentor -->
+                <div class="bg-white">
+                    <h3 class="text-xl font-bold mb-2" style="color: #996232;">Coding Mentor - CUNY Queens College</h3>
+                    <p class="text-gray-700 mb-2">2023 - 2024</p>
+                    <p class="text-gray-700 mb-4">Guidance: Supported students and aspiring developers in learning
+                        programming languages and concepts.</p>
+                    <p class="text-gray-700 mb-4">OOP Principles: Assisted in understanding and applying object-oriented
+                        programming principles.</p>
+                    <p class="text-gray-700 mb-4">Debugging: Helped with debugging, troubleshooting code, and improving
+                        efficiency.</p>
+                    <p class="text-gray-700 mb-4">Best Practices: Encouraged clean code, modularization, and proper
+                        documentation.</p>
+                    <p class="text-gray-700 mb-4">Career Advice: Provided insights into the software development
+                        industry and technical interview preparation.</p>
+                </div>
+
+                <!-- Experience 4: Assistant Manager -->
+                <div class="bg-white">
+                    <h3 class="text-xl font-bold mb-2" style="color: #996232;">Assistant Manager - Kennedy Fried Chicken
+                        & Pizza
+                    </h3>
+                    <p class="text-gray-700 mb-2">Jan 2023 - Aug 2023 · Part-time</p>
+                    <p class="text-gray-700 mb-4">Managed day-to-day operations, supervised staff, and ensured excellent
+                        customer service. Coordinated with team members to optimize workflows and enhance operational
+                        efficiency.</p>
+                    <ul class="text-gray-700 list-disc ml-6">
+                        <li>Oversaw daily operations and staff performance.</li>
+                        <li>Handled customer inquiries and resolved issues promptly.</li>
+                        <li>Implemented operational improvements to enhance service quality.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="mb-12 fade-in">
+            <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Achievement</h2>
+            <div class="flex justify-center items-center space-x-6">
+                <!-- LeetCode 100 Days Badge -->
+                <div class="text-center">
+                    <a href="https://leetcode.com/u/Eclipsewolf28/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://assets.leetcode.com/static_assets/marketing/2024-100-new.gif"
+                            alt="100 Days LeetCode Badge" class="w-40 h-auto mb-2">
+                    </a>
+                    <p class="text-sm text-gray-600">100 Days of LeetCode</p>
+                </div>
+
+                <!-- LeetCode 50 Days Badge -->
+                <div class="text-center">
+                    <a href="https://leetcode.com/u/Eclipsewolf28/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://assets.leetcode.com/static_assets/marketing/2024-50.gif"
+                            alt="50 Days LeetCode Badge" class="w-40 h-auto mb-2">
+                    </a>
+                    <p class="text-sm text-gray-600">50 Days of LeetCode</p>
+                </div>
+
+                <!-- March Challenge Badge -->
+                <div class="text-center">
+                    <a href="https://leetcode.com/u/Eclipsewolf28/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://leetcode.com/static/images/badges/2024/gif/2024-03.gif"
+                            alt="March Challenge Badge" class="w-40 h-auto mb-2">
+                    </a>
+                    <p class="text-sm text-gray-600">March Challenge</p>
+                </div>
+                <div class="text-center">
+                    <a href="https://leetcode.com/u/Eclipsewolf28/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://leetcode.com/static/images/badges/2024/gif/2024-09.gif"
+                            alt="September Challenge Badge" class="w-40 h-auto mb-2">
+                    </a>
+                    <p class="text-sm text-gray-600">September Challenge</p>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects " class="fade-in">
+            <h2 class="text-3xl font-extrabold mb-6 text-center" style="color: #996232;">Project</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 with Slider -->
+                <!-- Project 1 with Slider -->
+                <div class="bg-white p-3 border-dotted border-2 border-gray-400">
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-md">
+                            <div class="slider-images flex transition-transform duration-500 ease-in-out">
+                                <img src="https://raw.githubusercontent.com/ayanchyaziz123/final-year-project-main/master/screenshoot/1.Home%20page.png"
+                                    alt="Project 1 Slide 1">
+                                <img src="https://github.com/ayanchyaziz123/final-year-project-main/raw/master/screenshoot/2.Product%20page.png?raw=true"
+                                    alt="Project 1 Slide 2" class="w-full h-64 object-cover">
+                                <img src="https://github.com/ayanchyaziz123/final-year-project-main/raw/master/screenshoot/3.Compare%202%20laptops.png?raw=true"
+                                    alt="Project 1 Slide 3">
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <button
+                            class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                            onclick="prevSlide(this)">&#10094;</button>
+                        <button
+                            class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                            onclick="nextSlide(this)">&#10095;</button>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 mt-4" style="color: #996232;">Django & React E-commerce</h3>
+                    <p class="mb-4">
+                        An advanced e-commerce platform developed using Django for backend services and React for
+                        frontend interfaces. Key features include:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Authentication system implemented with Django Rest Framework for secure user management and
+                            authentication.</li>
+                        <li>Machine learning algorithms for personalized product recommendations, leveraging Pandas,
+                            Scikit-learn, and Numpy for accurate predictions.</li>
+                        <li>Dynamic and responsive frontend built with React to enhance user experience and interaction.
+                        </li>
+                        <li>Optimized backend services with Django to handle complex business logic and data processing.
+                        </li>
+                    </ul>
+                    The platform ensures a tailored shopping experience for users with its advanced recommendation
+                    system and secure authentication.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a target="_blank" href="https://github.com/ayanchyaziz123/final-year-project-main"
+                            class="text-blue-500 hover:underline flex items-center space-x-2">
+                            <svg class="w-5 h-5 fill-current text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.371 0 0 5.371 0 12c0 5.304 3.438 9.799 8.205 11.387.599.111.82-.261.82-.581 0-.286-.01-1.043-.015-2.048-3.338.725-4.043-1.609-4.043-1.609-.545-1.387-1.332-1.756-1.332-1.756-1.089-.744.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.494.997.109-.774.419-1.305.762-1.606-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.237-3.221-.124-.305-.536-1.526.118-3.176 0 0 1.009-.322 3.305 1.23.96-.267 1.989-.4 3.012-.404 1.023.004 2.052.137 3.013.404 2.296-1.552 3.304-1.23 3.304-1.23.655 1.65.243 2.871.119 3.176.77.84 1.236 1.911 1.236 3.221 0 4.608-2.805 5.621-5.476 5.92.431.372.815 1.107.815 2.229 0 1.608-.015 2.906-.015 3.305 0 .321.22.694.825.576C20.565 21.797 24 17.303 24 12c0-6.629-5.371-12-12-12z" />
+                            </svg>
+                            <span>View on GitHub</span>
+                        </a>
+
+                        <a target="_blank" href="https://www.youtube.com/watch?v=qfwnfB54NKU"
+                            class="text-blue-500 hover:underline flex items-center space-x-2">
+                            <svg class="w-5 h-5 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M23.499,6.203c-0.231-0.867-0.906-1.542-1.773-1.773C20.12,4.11,12,4.11,12,4.11s-8.12,0-9.727,0.32 C1.406,4.651,0.731,5.326,0.499,6.203C0.18,7.81,0.18,12,0.18,12s0,4.19,0.319,5.797c0.231,0.867,0.906,1.542,1.773,1.773 C3.88,19.89,12,19.89,12,19.89s8.12,0,9.727-0.32c0.867-0.231,1.542-0.906,1.773-1.773C23.82,16.19,23.82,12,23.82,12 S23.82,7.81,23.499,6.203z M9.545,15.568V8.432L15.568,12L9.545,15.568z" />
+                            </svg>
+                            <span>View on YouTube</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!--project 2.1  -->
+
+                <div class="bg-white p-3 border-dotted border-2 border-gray-400">
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-md">
+                            <div class="slider-images flex transition-transform duration-500 ease-in-out">
+                                <img src="assets/project_images/abroadbd/image1.png" alt="Project 2 Slide 1"
+                                    class="w-full h-64 object-cover">
+                                <img src="assets/project_images/abroadbd/image2.png" alt="Project 2 Slide 2"
+                                    class="w-full h-64 object-cover">
+                                <img src="assets/project_images/abroadbd/image3.png" alt="Project 2 Slide 3"
+                                    class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <button
+                            class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                            onclick="prevSlide(this)">&#10094;</button>
+                        <button
+                            class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                            onclick="nextSlide(this)">&#10095;</button>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 mt-4" style="color: #996232;">Abroad BD</h3>
+                    <p class="mb-4">
+                        Abroad BD is an app built using Next.js and Firebase to serve the Bangladeshi community in the
+                        USA. The application allows users to access a variety of services such as housing, job listings,
+                        marriage, and legal assistance. Key features include:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Google Authentication using Firebase for seamless login and user management.</li>
+                        <li>Next.js for server-side rendering, optimizing performance and SEO.</li>
+                        <li>Live data fetching and real-time updates with Firebase Firestore.</li>
+                        <li>Responsive and user-friendly interface for easy navigation on mobile and desktop.</li>
+                    </ul>
+                    This project focuses on providing valuable services to the Bangladeshi community abroad, offering a
+                    range of essential features through a simple and secure platform.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a target="_blank" href="https://github.com/ayanchyaziz123/abroadbd.com"
+                            class="text-blue-500 hover:underline flex items-center space-x-2">
+                            <svg class="w-5 h-5 fill-current text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.371 0 0 5.371 0 12c0 5.304 3.438 9.799 8.205 11.387.599.111.82-.261.82-.581 0-.286-.01-1.043-.015-2.048-3.338.725-4.043-1.609-4.043-1.609-.545-1.387-1.332-1.756-1.332-1.756-1.089-.744.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.494.997.109-.774.419-1.305.762-1.606-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.237-3.221-.124-.305-.536-1.526.118-3.176 0 0 1.009-.322 3.305 1.23.96-.267 1.989-.4 3.012-.404 1.023.004 2.052.137 3.013.404 2.296-1.552 3.304-1.23 3.304-1.23.655 1.65.243 2.871.119 3.176.77.84 1.236 1.911 1.236 3.221 0 4.608-2.805 5.621-5.476 5.92.431.372.815 1.107.815 2.229 0 1.608-.015 2.906-.015 3.305 0 .321.22.694.825.576C20.565 21.797 24 17.303 24 12c0-6.629-5.371-12-12-12z" />
+                            </svg>
+                            <span>View on GitHub</span>
+                        </a>
+
+                        <a target="_blank" href="https://abroadbd.com"
+                            class="text-blue-500 hover:underline flex items-center space-x-2">
+                            <svg class="w-5 h-5 fill-current text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12,0.307C5.488,0.307,0.307,5.488,0.307,12S5.488,23.693,12,23.693S23.693,18.512,23.693,12 S18.512,0.307,12,0.307z M9.17,16.596c-0.334,0.276-0.823,0.199-1.075-0.175L5.2,12.779c-0.327-0.469-0.099-1.108,0.45-1.261l1.888-0.535c0.444-0.126,0.913,0.04,1.166,0.402l1.268,1.865C9.766,14.838,9.634,15.62,9.17,16.596z M17.055,12.451l-1.865-1.268c-0.362-0.253-0.528-0.721-0.402-1.166l0.535-1.888c0.153-0.549,0.793-0.778,1.261-0.45l3.642,2.896c0.374,0.251,0.451,0.74,0.175,1.075L17.055,12.451z" />
+                            </svg>
+                            <span>View Live Website</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 with Slider -->
+                <div class="bg-white p-3 border-dotted border-2 border-gray-400">
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-md">
+                            <div class="slider-images flex transition-transform duration-500 ease-in-out">
+                                <img src="assets/project_images/innovatepi/image1.png" class="w-full h-48 object-cover">
+                                <!-- <img src="https://raw.githubusercontent.com/ayanchyaziz123/sample-project/master/img2.png" alt="Project 4 Slide 2" class="w-full h-48 object-cover"> -->
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <button
+                            class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-full hover:bg-gray-900"
+                            onclick="prevSlide(this)">&#10094;</button>
+                        <button
+                            class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-full hover:bg-gray-900"
+                            onclick="nextSlide(this)">&#10095;</button>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 mt-4" style="color: #996232;">Innovate Pi Next.js</h3>
+                    <p class="text-gray-700 mb-4">
+                        An advanced web application developed with Next.js for server-side rendering and static site
+                        generation, combined with Tailwind CSS for responsive and modern styling. Key features include:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>**Server-Side Rendering (SSR):** Utilizes Next.js's SSR capabilities to deliver dynamic
+                            content quickly and efficiently, improving SEO and user experience.</li>
+                        <li>**Static Site Generation (SSG):** Implements SSG to pre-render pages at build time for
+                            optimal performance and faster load times.</li>
+                        <li>**API Routes:** Integrates API routes in Next.js to handle backend logic and interact with
+                            external services seamlessly.</li>
+
+                        <li>**Scalable Architecture:** Adopts a scalable architecture to accommodate growing traffic and
+                            evolving features, ensuring long-term performance and maintainability.</li>
+                        <li>**Optimized Performance:** Employs best practices in Next.js and Tailwind CSS to optimize
+                            page load times and overall application speed.</li>
+                    </ul>
+                    This project demonstrates a robust solution for building modern web applications with high
+                    performance and flexibility.
+                    </p>
+
+                    <div class="flex space-x-4 mt-4">
+                        <a target="_blank" href="https://github.com/ayanchyaziz123/innovatepi"
+                            class="text-blue-500 hover:underline flex items-center space-x-2">
+                            <svg class="w-5 h-5 fill-current text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.371 0 0 5.371 0 12c0 5.304 3.438 9.799 8.205 11.387.599.111.82-.261.82-.581 0-.286-.01-1.043-.015-2.048-3.338.725-4.043-1.609-4.043-1.609-.545-1.387-1.332-1.756-1.332-1.756-1.089-.744.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.494.997.109-.774.419-1.305.762-1.606-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.237-3.221-.124-.305-.536-1.526.118-3.176 0 0 1.009-.322 3.305 1.23.96-.267 1.989-.4 3.012-.404 1.023.004 2.052.137 3.013.404 2.296-1.552 3.304-1.23 3.304-1.23.655 1.65.243 2.871.119 3.176.77.84 1.236 1.911 1.236 3.221 0 4.608-2.805 5.621-5.476 5.92.431.372.815 1.107.815 2.229 0 1.608-.015 2.906-.015 3.305 0 .321.22.694.825.576C20.565 21.797 24 17.303 24 12c0-6.629-5.371-12-12-12z" />
+                            </svg>
+                            <span>View on GitHub</span>
+                        </a>
+
+                        <a target="_blank" href="https://innovatepi.com"
+                            class="text-blue-500 hover:underline flex items-center space-x-2">
+                            <svg class="w-5 h-5 fill-current text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12,0.307C5.488,0.307,0.307,5.488,0.307,12S5.488,23.693,12,23.693S23.693,18.512,23.693,12 S18.512,0.307,12,0.307z M9.17,16.596c-0.334,0.276-0.823,0.199-1.075-0.175L5.2,12.779c-0.327-0.469-0.099-1.108,0.45-1.261l1.888-0.535c0.444-0.126,0.913,0.04,1.166,0.402l1.268,1.865C9.766,14.838,9.634,15.62,9.17,16.596z M17.055,12.451l-1.865-1.268c-0.362-0.253-0.528-0.721-0.402-1.166l0.535-1.888c0.153-0.549,0.793-0.778,1.261-0.45l3.642,2.896c0.374,0.251,0.451,0.74,0.175,1.075L17.055,12.451z" />
+                            </svg>
+                            <span>View Live Website</span>
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- Project 2 with Slider -->
+                <div class="bg-white p-3 border-dotted border-2 border-gray-400">
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-md">
+                            <div class="slider-images flex transition-transform duration-500 ease-in-out">
+                                <img src="https://github.com/ayanchyaziz123/codingjudge/blob/master/coding_judge_frontend/public/home.png?raw=true"
+                                    alt="Project 2 Slide 2">
+                                <img src="https://github.com/ayanchyaziz123/codingjudge/blob/master/coding_judge_frontend/public/accepted.png?raw=true"
+                                    alt="Project 2 Slide 1">
+                                <img src="https://github.com/ayanchyaziz123/codingjudge/blob/master/coding_judge_frontend/public/Register.png?raw=true"
+                                    alt="Project 2 Slide 2">
+
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <button
+                            class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                            onclick="prevSlide(this)">&#10094;</button>
+                        <button
+                            class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-900"
+                            onclick="nextSlide(this)">&#10095;</button>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 mt-4" style="color: #996232;">Personal Online Coding Judge</h3>
+                    <p class="text-gray-700 mb-4">
+                        A dynamic coding judge platform built with Node.js and Express.js for the backend and React.js
+                        for the frontend. Key features include:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Authentication system for secure user management and session handling, ensuring a
+                            personalized and secure coding environment.</li>
+                        <li>API handling using the MVC (Model-View-Controller) pattern to maintain clean and organized
+                            backend code and facilitate efficient data management.</li>
+                        <li>Interactive and intuitive user interface built with React.js, providing a seamless
+                            experience for coding challenges and solutions.</li>
+                        <li>Responsive design implemented with Tailwind CSS to ensure compatibility across various
+                            devices and screen sizes.</li>
+                    </ul>
+                    The platform delivers an engaging and secure environment for users to practice and showcase their
+                    coding skills.
+                    </p>
+                    <a target="_blank" href="https://github.com/ayanchyaziz123/codingjudge"
+                        class="text-blue-500 hover:underline flex items-center space-x-2">
+                        <svg class="w-5 h-5 fill-current text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.371 0 0 5.371 0 12c0 5.304 3.438 9.799 8.205 11.387.599.111.82-.261.82-.581 0-.286-.01-1.043-.015-2.048-3.338.725-4.043-1.609-4.043-1.609-.545-1.387-1.332-1.756-1.332-1.756-1.089-.744.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.494.997.109-.774.419-1.305.762-1.606-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.237-3.221-.124-.305-.536-1.526.118-3.176 0 0 1.009-.322 3.305 1.23.96-.267 1.989-.4 3.012-.404 1.023.004 2.052.137 3.013.404 2.296-1.552 3.304-1.23 3.304-1.23.655 1.65.243 2.871.119 3.176.77.84 1.236 1.911 1.236 3.221 0 4.608-2.805 5.621-5.476 5.92.431.372.815 1.107.815 2.229 0 1.608-.015 2.906-.015 3.305 0 .321.22.694.825.576C20.565 21.797 24 17.303 24 12c0-6.629-5.371-12-12-12z" />
+                        </svg>
+                        <span>View on GitHub</span>
+                    </a>
+
+                </div>
+
+                <!-- Project 3 with Slider -->
+                <div class="bg-white p-3 border-dotted border-2 border-gray-400">
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-md">
+                            <div class="slider-images flex transition-transform duration-500 ease-in-out">
+
+
+                                <img src="https://github.com/ayanchyaziz123/algorithm-visualizer/blob/master/public/bs.png?raw=true"
+                                    class="w-full h-48 object-cover">
+                                <img src="https://github.com/ayanchyaziz123/algorithm-visualizer/blob/master/public/sort.png?raw=true"
+                                    class="w-full h-48 object-cover">
+                                <img
+                                    src="https://github.com/ayanchyaziz123/algorithm-visualizer/blob/master/public/pn.png?raw=true">
+
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <button
+                            class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-full hover:bg-gray-900"
+                            onclick="prevSlide(this)">&#10094;</button>
+                        <button
+                            class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-full hover:bg-gray-900"
+                            onclick="nextSlide(this)">&#10095;</button>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 mt-4" style="color: #996232;">Interactive Algorithm Visualizer
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        A React application that visually demonstrates various data structures and algorithms, providing
+                        an interactive learning experience. Key features include:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Real-time visualization of different data structures and algorithms, such as sorting,
+                            searching, and graph algorithms, to aid in understanding complex concepts.</li>
+                        <li>Interactive controls to manipulate data and visualize how algorithms process it, allowing
+                            users to step through and debug their code effectively.</li>
+                        <li>Customizable visualizations with options to adjust speed, data size, and other parameters
+                            for a tailored learning experience.</li>
+                        <li>Responsive design with Tailwind CSS, ensuring compatibility and usability across various
+                            devices and screen sizes.</li>
+                        <li>Integration with popular algorithms and data structures libraries to provide accurate and
+                            up-to-date visual representations.</li>
+                    </ul>
+                    This tool serves as a valuable educational resource for students and professionals looking to
+                    enhance their understanding of algorithms and data structures.
+                    </p>
+                    <a target="_blank" href="https://github.com/ayanchyaziz123/algorithm-visualizer/tree/master"
+                        class="text-blue-500 hover:underline flex items-center space-x-2">
+                        <svg class="w-5 h-5 fill-current text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.371 0 0 5.371 0 12c0 5.304 3.438 9.799 8.205 11.387.599.111.82-.261.82-.581 0-.286-.01-1.043-.015-2.048-3.338.725-4.043-1.609-4.043-1.609-.545-1.387-1.332-1.756-1.332-1.756-1.089-.744.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.494.997.109-.774.419-1.305.762-1.606-2.665-.305-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.237-3.221-.124-.305-.536-1.526.118-3.176 0 0 1.009-.322 3.305 1.23.96-.267 1.989-.4 3.012-.404 1.023.004 2.052.137 3.013.404 2.296-1.552 3.304-1.23 3.304-1.23.655 1.65.243 2.871.119 3.176.77.84 1.236 1.911 1.236 3.221 0 4.608-2.805 5.621-5.476 5.92.431.372.815 1.107.815 2.229 0 1.608-.015 2.906-.015 3.305 0 .321.22.694.825.576C20.565 21.797 24 17.303 24 12c0-6.629-5.371-12-12-12z" />
+                        </svg>
+                        <span>View on GitHub</span>
+                    </a>
+
+                </div>
+
+
+            </div>
+        </section>
+    
+        <!-- Contact Section -->
+<section id="contact" class="min-h-screen mb-12 mt-20 fade-in flex flex-col items-center">
+    <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Contact</h2>
+    
+    <!-- Contact Information -->
+    <div class="text-center mb-6">
+        <p class="text-lg font-medium text-gray-700">Email: <a href="mailto:azizusa22@gmail.com" class="text-yellow-600 hover:underline">azizusa22@gmail.com</a></p>
+        <p class="text-lg font-medium text-gray-700">Phone: <a href="tel:+347-669-6071" class="text-yellow-600 hover:underline">+347-669-6071</a></p>
+    </div>
+    
+    <!-- Full Height Google Form Embed -->
+    <div class="flex-grow w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSc96vHD2trnqFqdCFH1vGaON-r8zUo-2NgendkDn6SNNB8OZA/viewform?usp=sf_link"
+            class="w-full h-full"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0">
+            Loading…
+        </iframe>
+    </div>
+</section>
+
+<!-- Tailwind CSS or custom CSS styling -->
+
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white p-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 RahmanBlog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            function changeActiveLink() {
+                let index = sections.length;
+
+                while (--index && window.scrollY + 50 < sections[index].offsetTop) { }
+
+                navLinks.forEach((link) => link.classList.remove('active'));
+                if (index >= 0) navLinks[index].classList.add('active');
+            }
+
+            changeActiveLink();
+            window.addEventListener('scroll', changeActiveLink);
+        });
+    </script>
+    <script>
+        // JavaScript for the slider functionality
+        function nextSlide(button) {
+            const slider = button.parentElement.querySelector('.slider-images');
+            const sliderWidth = slider.offsetWidth;
+            const currentTranslateX = parseFloat(getComputedStyle(slider).transform.split(',')[4]) || 0;
+            const newTranslateX = Math.max(currentTranslateX - sliderWidth, -slider.scrollWidth + sliderWidth);
+            slider.style.transform = `translateX(${newTranslateX}px)`;
+        }
+
+        function prevSlide(button) {
+            const slider = button.parentElement.querySelector('.slider-images');
+            const sliderWidth = slider.offsetWidth;
+            const currentTranslateX = parseFloat(getComputedStyle(slider).transform.split(',')[4]) || 0;
+            const newTranslateX = Math.min(currentTranslateX + sliderWidth, 0);
+            slider.style.transform = `translateX(${newTranslateX}px)`;
+        }
+    </script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('div[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script>
+        const fadeIns = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        fadeIns.forEach(fadeIn => {
+            observer.observe(fadeIn); // Observe each fade-in element
+        });
+    </script>
+    <script>
+        AOS.init({
+            duration: 1900, // Animation duration
+        });
+    </script>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link'); // Select all sidebar links
+
+        // Open sidebar
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+
+        // Close sidebar when close button is clicked
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+
+        // Close sidebar when clicking outside of it
+        sidebar.addEventListener('click', (event) => {
+            if (event.target === sidebar) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+
+        // Close sidebar when any link is clicked
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+</body>
