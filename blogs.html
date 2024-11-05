@@ -88,10 +88,10 @@
             </div>
             <div class="hidden md:flex space-x-6">
                 <a href="index.html" class=" text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Home</a>
-                <a href="#biography" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Blog</a>
+                <a href="#biography" class="nav-link font-semibold text-gray-700 hover:text-yellow-600 ">Blog</a>
                 <a href="projects.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Projects</a>
                 <a href="#biography" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">About Me</a>
-                <a href="projects.html" class="nav-link font-semibold text-gray-700 hover:text-yellow-600 ">Contact</a>
+                <a href="projects.html" class="font-semibold text-gray-700 hover:text-yellow-600 ">Contact</a>
                 
             </div>
             
@@ -134,7 +134,7 @@
     </div>
 
 
-    <h2 class="text-3xl font-extrabold text-center mb-mt-4 mb-4" style="color: #996232;">Latest Blog Posts</h2>
+    <h2 class="text-3xl font-extrabold text-center mt-4 mb-4" style="color: #996232;">Latest Blog Posts</h2>
     <div class="container mx-auto mb-6">
         <div class="flex justify-center space-x-4">
             <button class="filter-btn bg-yellow-600 text-white px-4 py-2 rounded" data-category="all">All</button>
@@ -150,54 +150,56 @@
         <div class="container mx-auto space-y-8">
             <!-- Full-width Blog Card -->
             <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 col-span-full flex flex-col">
-                <img src="https://designindc.com/wp-content/uploads/2022/12/Machine-Learning.jpg" alt="Full-Width Blog Image" class="w-full h-96 object-cover flex-grow">
-                <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">AI</div>
-     
-                <div class="p-4 pt-24"> <!-- Adjusted padding for text -->
-                    <h3 class="text-4xl font-bold text-black mb-4">Full-Width Blog Title</h3>
-                    <p class="text-black mb-4">An engaging excerpt from the full-width blog post that highlights key information to entice readers...</p>
-                    <a href="full-width-blog-post.html" class="text-blue-600 underline font-semibold">Read More</a>
+                <img src="https://images.unsplash.com/photo-1535930749574-1399327ce78f" alt="Machine Learning in Action" class="w-full h-96 object-cover flex-grow">
+                <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Machine Learning</div>
+            
+                <div class="p-4 pt-24">
+                    <h3 class="text-4xl font-bold text-black mb-4">How Machine Learning is Transforming Industries</h3>
+                    <p class="text-black mb-4">Discover the latest advancements in machine learning and how they’re reshaping industries from healthcare to finance. Learn about key applications and future trends...</p>
+                    <a href="https://example.com/blog/machine-learning-transforming-industries" class="text-blue-600 underline font-semibold">Read More</a>
                 </div>
             </div>
+            
     
             <!-- Three Blog Cards in a Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Card 1 -->
-                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
-                    <img src="https://cdn.builtin.com/cdn-cgi/image/f=auto,fit=cover,w=1200,h=635,q=80/https://builtin.com/sites/www.builtin.com/files/2021-12/machine-learning-examples-applications.png" alt="Blog Image 1" class="w-full h-48 object-cover flex-grow">
-                    <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Machine Learning</div>
-              
-                    <div class="p-4 pt-20"> <!-- Adjusted padding for text -->
-                        <h3 class="text-2xl font-bold text-black mb-2">Blog Title 1</h3>
-                        <p class="text-black mb-4">A brief description of the blog content that entices the reader to continue...</p>
-                        <a href="blog-post-1.html" class="text-blue-600 underline font-semibold">Read More</a>
-                    </div>
-                </div>
-    
-                <!-- Blog Card 2 -->
-                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
-                    <img src="path/to/blog-image2.jpg" alt="Blog Image 2" class="w-full h-48 object-cover flex-grow">
-                    <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Technology</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Blog Card 1 -->
+    <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*c_fiB-YgbnMl6nntYGBMHQ.jpeg" alt="Machine Learning Applications" class="w-full h-48 object-cover flex-grow">
+        <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Machine Learning</div>
       
-                    <div class="p-4 pt-20"> <!-- Adjusted padding for text -->
-                        <h3 class="text-2xl font-bold text-black mb-2">Blog Title 2</h3>
-                        <p class="text-black mb-4">A brief summary of what this blog post discusses. It's crafted to capture interest...</p>
-                        <a href="blog-post-2.html" class="text-blue-600 underline font-semibold">Read More</a>
-                    </div>
-                </div>
-    
-                <!-- Blog Card 3 -->
-                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
-                    <img src="path/to/blog-image3.jpg" alt="Blog Image 3" class="w-full h-48 object-cover flex-grow">
-                    <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Innovation</div>
-                  
-                    <div class="p-4 pt-20"> <!-- Adjusted padding for text -->
-                        <h3 class="text-2xl font-bold text-black mb-2">Blog Title 3</h3>
-                        <p class="text-black  mb-4">A compelling excerpt that highlights the key points of this blog post...</p>
-                        <a href="blog-post-3.html" class="text-blue-600 underline font-semibold">Read More</a>
-                    </div>
-                </div>
-            </div>
+        <div class="p-4 pt-20">
+            <h3 class="text-2xl font-bold text-black mb-2">10 Real-World Applications of Machine Learning</h3>
+            <p class="text-black mb-4">Explore how machine learning is shaping industries like healthcare, finance, and retail, driving innovation and efficiency...</p>
+            <a href="https://example.com/blog/machine-learning-applications" class="text-blue-600 underline font-semibold">Read More</a>
+        </div>
+    </div>
+
+    <!-- Blog Card 2 -->
+    <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+        <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Deep-Learning-vs-Machine-Learning.jpg" alt="Emerging Technologies" class="w-full h-48 object-cover flex-grow">
+        <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Technology</div>
+      
+        <div class="p-4 pt-20">
+            <h3 class="text-2xl font-bold text-black mb-2">The Future of Emerging Technologies</h3>
+            <p class="text-black mb-4">An in-depth look at the technologies revolutionizing the world today, from AI to quantum computing and beyond...</p>
+            <a href="https://example.com/blog/future-of-technology" class="text-blue-600 underline font-semibold">Read More</a>
+        </div>
+    </div>
+
+    <!-- Blog Card 3 - Trie Algorithm -->
+    <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+        <img src="https://images.klipfolio.com/website/public/11f3da89-351a-4ca1-a59d-b6806b0fcec1/algorithm.jpg" alt="Trie Data Structure" class="w-full h-48 object-cover flex-grow">
+        <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Algorithms</div>
+      
+        <div class="p-4 pt-20">
+            <h3 class="text-2xl font-bold text-black mb-2">Understanding the Trie Data Structure</h3>
+            <p class="text-black mb-4">Learn how the Trie data structure is used to efficiently store and search strings, with practical applications in text processing...</p>
+            <a href="https://example.com/blog/trie-algorithm" class="text-blue-600 underline font-semibold">Read More</a>
+        </div>
+    </div>
+</div>
+
         </div>
     </section>
     
