@@ -4,88 +4,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs - RahmanBlog</title>
+    <title>About Me - RahmanBlog</title>
     <link rel="icon" href="/image/fav.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom styles for the slider */
+        .slider-images {
+            display: flex;
+        }
+
+        .slider-images img {
+            width: 100%;
+            height: 450px;
+            /* Ensure all images have a fixed height */
+            object-fit: cover;
+            /* Ensures all images are uniformly fitted */
+            flex-shrink: 0;
+        }
+
+        .active {
+            font-weight: bold;
+            /* Make the active link bold */
+            color: #cf6000;
+            /* Use your custom color */
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom styles for the sidebar */
+        #sidebar {
+            width: 250px;
+            /* Set the width of the sidebar */
+            z-index: 100;
+            /* Make sure the sidebar is above other content */
+        }
+
+        /* Add transition effects */
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hide the sidebar by default */
+        #sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .shadow {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Adjust shadow properties as needed */
+        }
+        #contact .flex-grow {
+        height: calc(100vh - 200px); /* Adjust 200px based on height of header and spacing */
+    }
+    </style>
 </head>
 
-<body class="font-sans leading-relaxed bg-gray-50">
+<body class="font-sans leading-relaxed">
 
     <!-- Navbar -->
-    <nav class="bg-white text-gray-800 p-4 shadow-md sticky top-0 z-50">
+    <nav id="navbar" class="text-gray-800 p-4 sticky top-0 z-50 transition-shadow duration-300 ease-in-out"
+        style="background-color: #f8f6f3;">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-xl font-bold">
-                <a href="index.html" class="hover:underline text-blue-600 transition duration-300 ease-in-out">Rahman</a>
+                <a href="index.html" class="hover:underline transition duration-300 ease-in-out"
+                    style="color: #996232;">Rahman Azizur</a>
             </div>
-            <div class="hidden md:flex space-x-4">
-                <a href="blogs.html" class="nav-link hover:text-blue-500">Blogs</a>
-                <a href="#" class="nav-link">Memories</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class=" text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Home</a>
+                <a href="#biography" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Blog</a>
+                <a href="projects.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Projects</a>
+                <a href="#biography" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">About Me</a>
+                <a href="projects.html" class="nav-link font-semibold text-gray-700 hover:text-yellow-600 ">Contact</a>
+                
+            </div>
+            
+            <!-- Hamburger Menu for Mobile -->
+            <div class="md:hidden">
+                <button id="sidebarToggle" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container mx-auto mt-6 p-4 sm:p-6 border max-w-5xl bg-white rounded-lg shadow-md">
 
-        <h1 class="text-3xl font-bold mb-6 text-gray-800">Recent Blogs</h1>
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="fixed inset-0 bg-gray-800 bg-opacity-75 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-end p-4">
+            <button id="closeSidebar" class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-4">
+            <a href="#biography" class="text-white text-xl sidebar-link">Biography</a>
+            <a href="#skills" class="text-white text-xl sidebar-link">Skills</a>
+            <a href="#education" class="text-white text-xl sidebar-link">Education</a>
+            <a href="#experience" class="text-white text-xl sidebar-link">Experience</a>
+            <a href="#achievements" class="text-white text-xl sidebar-link">Achievement</a>
+            <a href="#projects" class="text-white text-xl sidebar-link">Project</a>
+            <a href="#contact" class="text-white text-xl sidebar-link">Contact</a>
+        </div>
+    </div>
 
-        <!-- Categories Section -->
-        <div class="mb-4">
-            <div class="flex flex-wrap gap-2">
-                <a href="#" class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm hover:bg-blue-300 transition duration-200">Machine Learning</a>
-                <a href="#" class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm hover:bg-blue-300 transition duration-200">AI</a>
-                <a href="#" class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm hover:bg-blue-300 transition duration-200">Web Development</a>
-                <a href="#" class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm hover:bg-blue-300 transition duration-200">JavaScript</a>
-                <a href="#" class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm hover:bg-blue-300 transition duration-200">Data Science</a>
+
+    <h2 class="text-3xl font-extrabold text-center mb-mt-4 mb-4" style="color: #996232;">Latest Blog Posts</h2>
+    <div class="container mx-auto mb-6">
+        <div class="flex justify-center space-x-4">
+            <button class="filter-btn bg-yellow-600 text-white px-4 py-2 rounded" data-category="all">All</button>
+            <button class="filter-btn bg-yellow-600 text-white px-4 py-2 rounded" data-category="AI">AI</button>
+            <button class="filter-btn bg-yellow-600 text-white px-4 py-2 rounded" data-category="Machine Learning">Machine Learning</button>
+            <button class="filter-btn bg-yellow-600 text-white px-4 py-2 rounded" data-category="Technology">Technology</button>
+            <button class="filter-btn bg-yellow-600 text-white px-4 py-2 rounded" data-category="Innovation">Innovation</button>
+        </div>
+    </div>
+
+
+    <section id="blog" class="mb-12 fade-in">
+        <div class="container mx-auto space-y-8">
+            <!-- Full-width Blog Card -->
+            <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 col-span-full flex flex-col">
+                <img src="https://designindc.com/wp-content/uploads/2022/12/Machine-Learning.jpg" alt="Full-Width Blog Image" class="w-full h-96 object-cover flex-grow">
+                <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">AI</div>
+     
+                <div class="p-4 pt-24"> <!-- Adjusted padding for text -->
+                    <h3 class="text-4xl font-bold text-black mb-4">Full-Width Blog Title</h3>
+                    <p class="text-black mb-4">An engaging excerpt from the full-width blog post that highlights key information to entice readers...</p>
+                    <a href="full-width-blog-post.html" class="text-blue-600 underline font-semibold">Read More</a>
+                </div>
+            </div>
+    
+            <!-- Three Blog Cards in a Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Card 1 -->
+                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <img src="https://cdn.builtin.com/cdn-cgi/image/f=auto,fit=cover,w=1200,h=635,q=80/https://builtin.com/sites/www.builtin.com/files/2021-12/machine-learning-examples-applications.png" alt="Blog Image 1" class="w-full h-48 object-cover flex-grow">
+                    <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Machine Learning</div>
+              
+                    <div class="p-4 pt-20"> <!-- Adjusted padding for text -->
+                        <h3 class="text-2xl font-bold text-black mb-2">Blog Title 1</h3>
+                        <p class="text-black mb-4">A brief description of the blog content that entices the reader to continue...</p>
+                        <a href="blog-post-1.html" class="text-blue-600 underline font-semibold">Read More</a>
+                    </div>
+                </div>
+    
+                <!-- Blog Card 2 -->
+                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <img src="path/to/blog-image2.jpg" alt="Blog Image 2" class="w-full h-48 object-cover flex-grow">
+                    <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Technology</div>
+      
+                    <div class="p-4 pt-20"> <!-- Adjusted padding for text -->
+                        <h3 class="text-2xl font-bold text-black mb-2">Blog Title 2</h3>
+                        <p class="text-black mb-4">A brief summary of what this blog post discusses. It's crafted to capture interest...</p>
+                        <a href="blog-post-2.html" class="text-blue-600 underline font-semibold">Read More</a>
+                    </div>
+                </div>
+    
+                <!-- Blog Card 3 -->
+                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <img src="path/to/blog-image3.jpg" alt="Blog Image 3" class="w-full h-48 object-cover flex-grow">
+                    <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full">Innovation</div>
+                  
+                    <div class="p-4 pt-20"> <!-- Adjusted padding for text -->
+                        <h3 class="text-2xl font-bold text-black mb-2">Blog Title 3</h3>
+                        <p class="text-black  mb-4">A compelling excerpt that highlights the key points of this blog post...</p>
+                        <a href="blog-post-3.html" class="text-blue-600 underline font-semibold">Read More</a>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+    
 
-       <!-- Blog Post 1 -->
-<div class="bg-gray-100 p-3 mb-6 flex flex-col md:flex-row rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
-    <img src="blogs/blog1/iwu.jpeg" alt="IWU Class Blog" class="w-full md:w-1/3 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-4">
-    <div class="flex-1">
-        <h2 class="text-xl font-semibold mb-2 text-gray-800">IWU Class Blog - 25 October</h2>
-        <p class="text-gray-500 mb-1">
-            <i class="fas fa-calendar-alt mr-1"></i> 
-            Published on: <span class="font-medium">October 25, 2024</span>
-        </p>
-        <div class="mb-2">
-            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded-full text-sm">Machine Learning</span>
-            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded-full text-sm">AI</span>
+
+    
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white p-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 RahmanBlog. All rights reserved.</p>
         </div>
-        <p class="text-gray-700 mb-4">In today's class, we explored the fundamentals of Machine Learning (ML) and Artificial Intelligence (AI).
-            The focus was on understanding how AI systems learn from data and make predictions or decisions based on...</p>
-        <a href="blogs/blog1/iwu_class_blog.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition duration-300">
-            Read More
-        </a>
-    </div>
-</div>
+    </footer>
 
-<!-- Blog Post 2 -->
-<div class="bg-gray-100 p-6 mb-6 flex flex-col md:flex-row rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
-    <img src="blogs/blog2/some_image.jpeg" alt="Another Blog Post" class="w-full md:w-1/3 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-4">
-    <div class="flex-1">
-        <h2 class="text-xl font-semibold mb-2 text-gray-800">Another Blog Post - 20 October</h2>
-        <p class="text-gray-500 mb-1">
-            <i class="fas fa-calendar-alt mr-1"></i> 
-            Published on: <span class="font-medium">October 20, 2024</span>
-        </p>
-        <div class="mb-2">
-            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded-full text-sm">Web Development</span>
-            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded-full text-sm">JavaScript</span>
-        </div>
-        <p class="text-gray-700 mb-4">This post delves into the latest trends in web development, focusing on modern frameworks and their impact on software engineering...</p>
-        <a href="blogs/blog2/another_blog_post.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition duration-300">
-            Read More
-        </a>
-    </div>
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            function changeActiveLink() {
+                let index = sections.length;
+
+                while (--index && window.scrollY + 50 < sections[index].offsetTop) { }
+
+                navLinks.forEach((link) => link.classList.remove('active'));
+                if (index >= 0) navLinks[index].classList.add('active');
+            }
+
+            changeActiveLink();
+            window.addEventListener('scroll', changeActiveLink);
+        });
+    </script>
+    <script>
+        // JavaScript for the slider functionality
+        function nextSlide(button) {
+            const slider = button.parentElement.querySelector('.slider-images');
+            const sliderWidth = slider.offsetWidth;
+            const currentTranslateX = parseFloat(getComputedStyle(slider).transform.split(',')[4]) || 0;
+            const newTranslateX = Math.max(currentTranslateX - sliderWidth, -slider.scrollWidth + sliderWidth);
+            slider.style.transform = `translateX(${newTranslateX}px)`;
+        }
+
+        function prevSlide(button) {
+            const slider = button.parentElement.querySelector('.slider-images');
+            const sliderWidth = slider.offsetWidth;
+            const currentTranslateX = parseFloat(getComputedStyle(slider).transform.split(',')[4]) || 0;
+            const newTranslateX = Math.min(currentTranslateX + sliderWidth, 0);
+            slider.style.transform = `translateX(${newTranslateX}px)`;
+        }
+    </script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('div[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script>
+        const fadeIns = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        fadeIns.forEach(fadeIn => {
+            observer.observe(fadeIn); // Observe each fade-in element
+        });
+    </script>
+    <script>
+        AOS.init({
+            duration: 1900, // Animation duration
+        });
+    </script>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link'); // Select all sidebar links
+
+        // Open sidebar
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+
+        // Close sidebar when close button is clicked
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+
+        // Close sidebar when clicking outside of it
+        sidebar.addEventListener('click', (event) => {
+            if (event.target === sidebar) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+
+        // Close sidebar when any link is clicked
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+    
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.getAttribute('data-category');
+    
+                    blogCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 
 
-        <!-- Add more blog posts as needed -->
-    </div>
+
+
+
+
 
 </body>
-
-</html>

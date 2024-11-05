@@ -79,95 +79,58 @@
 <body class="font-sans leading-relaxed">
 
     <!-- Navbar -->
-    <nav id="navbar" class="text-gray-800 p-4 sticky top-0 z-50 transition-shadow duration-300 ease-in-out"
-        style="background-color: #f8f6f3;">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold">
-                <a href="index.html" class="hover:underline transition duration-300 ease-in-out"
-                    style="color: #996232;">Rahman Azizur</a>
-            </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="index.html" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Home</a>
-                <a href="blogs.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Blogs</a>
-                <a href="projects.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Projects</a>
-                <a href="about_me.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">About Me</a>
-                <a href="contact.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Contact</a>
-                
-            </div>
-            
-            <!-- Hamburger Menu for Mobile -->
-            <div class="md:hidden">
-                <button id="sidebarToggle" class="text-gray-800 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
+     <!-- Navbar -->
+     <nav id="navbar" class="text-gray-800 p-4 sticky top-0 z-50 transition-shadow duration-300 ease-in-out"
+     style="background-color: #f8f6f3;">
+     <div class="container mx-auto flex justify-between items-center">
+         <div class="text-xl font-bold">
+             <a href="index.html" class="hover:underline transition duration-300 ease-in-out"
+                 style="color: #996232;">Rahman Azizur</a>
+         </div>
+         <div class="hidden md:flex space-x-6">
+             <a href="index.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Home</a>
+             <a href="blogs.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Blogs</a>
+             <a href="projects.html" class="nav-link text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Projects</a>
+             <a href="about_me.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">About Me</a>
+             <a href="contact.html" class="text-lg font-semibold text-gray-700 hover:text-yellow-600 ">Contact</a>
+             
+         </div>
+         
+         <!-- Hamburger Menu for Mobile -->
+         <div class="md:hidden">
+             <button id="sidebarToggle" class="text-gray-800 focus:outline-none">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                         d="M4 6h16M4 12h16m-7 6h7"></path>
+                 </svg>
+             </button>
+         </div>
+     </div>
+ </nav>
 
 
-    <!-- Sidebar -->
-    <!-- Sidebar -->
-    <div id="sidebar"
-        class="fixed inset-0 bg-gray-800 bg-opacity-75 transform -translate-x-full transition-transform duration-300 ease-in-out">
-        <div class="flex justify-end p-4">
-            <button id="closeSidebar" class="text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-        </div>
-        <div class="flex flex-col items-center justify-center h-full space-y-4">
-            <a href="index.html" class="text-white text-xl sidebar-link">Home</a>
-            <a href="blogs.html" class="text-white text-xl sidebar-link">Blogs</a>
-            <a href="projects.html" class="text-white text-xl sidebar-link">Projects</a>
-            <a href="about_me.html" class="text-white text-xl sidebar-link">About Me</a>
-            <a href="contact.html" class="text-white text-xl sidebar-link">Contact</a>
-        </div>
-    </div>
-
-
-
-    <div class="py-8" style="background-color: #f8f6f3;">
-        <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:space-x-8">
-
-            <!-- Cover Photo on the Left Side -->
-            <div class="w-full md:w-1/2 h-96 md:h-[700px] bg-cover bg-center rounded-sm relative"
-                style="background-image: url('./assets/images/cover.jpeg');">
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent rounded-sm">
-                </div>
-            </div>
-
-            <!-- Text and Links on the Right Side -->
-            <div class="w-full md:w-1/2 mt-4 md:mt-0 text-gray-900 text-center md:text-left space-y-4 p-6">
-                <h1 class="text-3xl md:text-4xl font-bold" style="color: #996232;">Hi, I'm Rahman – a software engineer specializing in web development and AI</h1>
-                <a href="https://leetcode.com/u/Eclipsewolf28/"
-                    class="text-lg font-bold text-yellow-500 underline">Leetcoder</a>
-
-                <!-- Social Links -->
-                <div class="mt-4 flex justify-center md:justify-start space-x-4">
-                    <a href="https://www.linkedin.com/in/azizur-rahman-720636165/"
-                        class="text-gray-700 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin fa-2x"></i>
-                    </a>
-                    <a href="https://github.com/ayanchyaziz123" class="text-gray-700 hover:text-gray-900"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github fa-2x"></i>
-                    </a>
-                    <a href="mailto:azizurusa22@gmail.com" class="text-gray-700 hover:text-red-700" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fas fa-envelope fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+ <!-- Sidebar -->
+ <!-- Sidebar -->
+ <div id="sidebar"
+     class="fixed inset-0 bg-gray-800 bg-opacity-75 transform -translate-x-full transition-transform duration-300 ease-in-out">
+     <div class="flex justify-end p-4">
+         <button id="closeSidebar" class="text-white">
+             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                 </path>
+             </svg>
+         </button>
+     </div>
+     <div class="flex flex-col items-center justify-center h-full space-y-4">
+         <a href="index.html" class="text-white text-xl sidebar-link">Home</a>
+         <a href="blogs.html" class="text-white text-xl sidebar-link">Blogs</a>
+         <a href="projects.html" class="text-white text-xl sidebar-link">Projects</a>
+         <a href="about_me.html" class="text-white text-xl sidebar-link">About Me</a>
+         <a href="contact.html" class="text-white text-xl sidebar-link">Contact</a>
+     </div>
+ </div>
 
 
 
@@ -175,27 +138,51 @@
     <div class="container mx-auto mt-2 p-4 sm:p-6  max-w-6xl">
 
 
-   
 
+        <!-- Projects Section -->
+        <!-- Projects Section -->
+<section id="projects" class="fade-in">
+    <h2 class="text-3xl font-extrabold mb-6 text-center" style="color: #996232;">Projects</h2>
 
-        <!-- About Me Section -->
-        <section id="biography" class="mb-12 mt-20 fade-in">
-            <h2 class="text-3xl font-extrabold text-center mb-6" style="color: #996232;">Biography</h2>
-            <p class="text-gray-700 leading-relaxed">
-                <span class="text-2xl">Hi there!</span> I’m Rahman Azizur Ayan, a dedicated software engineer
-                with a passion for the cosmos. With a background in Computer Science and a love for both coding and
-                astronomy, I created this blog to document my journey and share insights at the crossroads of these two
-                exciting fields.
-            </p>
-            <p class="text-gray-700 leading-relaxed mt-4">My fascination with technology began at 17 years old. Since
-                then, I’ve been driven by a desire to innovate and explore, whether it's through developing software
-                solutions or delving into the mysteries of the universe.
-            </p>
-            <p class="text-gray-700 leading-relaxed mt-4">Beyond coding and stargazing, I am always on the lookout for
-                new experiences and learning opportunities. Through this blog, I hope to connect with fellow enthusiasts
-                and inspire others who share a passion for technology and the stars.
-            </p>
-        </section>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div class="bg-white p-4 border-dotted border-2 border-gray-400 text-center rounded-md">
+            <img src="https://raw.githubusercontent.com/ayanchyaziz123/final-year-project-main/master/screenshoot/1.Home%20page.png" alt="Project 1 Thumbnail" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-bold mb-2" style="color: #996232;">Django & React E-commerce</h3>
+            <p class="text-gray-700 mb-4"> An advanced e-commerce platform developed using Django for backend services and React for
+                frontend interfaces. Key features include:</p>
+                <a href="django-react-ecommerce.html" class="text-gray-700 underline hover:text-gray-900">
+                    Full Project
+                </a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="bg-white p-4 border-dotted border-2 border-gray-400 text-center rounded-md">
+            <img src="assets/project_images/abroadbd/image1.png" alt="Project 2 Thumbnail" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-bold mb-2" style="color: #996232;">Abroad BD</h3>
+            <p class="text-gray-700 mb-4">   Abroad BD is an app built using Next.js and Firebase to serve the Bangladeshi community in the
+                USA. The application allows users to access a variety of services such as housing, job listings,
+                marriage, and legal assistance. Key features include:</p>
+                <a href="abroad_bd.html" class="text-gray-700 underline hover:text-gray-900">
+                    Full Project
+                </a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="bg-white p-4 border-dotted border-2 border-gray-400 text-center rounded-md">
+            <img src="https://github.com/ayanchyaziz123/algorithm-visualizer/blob/master/public/bs.png?raw=true" alt="Project 3 Thumbnail" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-bold mb-2" style="color: #996232;">Interactive Algorithm Visualizer</h3>
+            <p class="text-gray-700 mb-4">A React application that visually demonstrates various data structures and algorithms, providing
+                an interactive learning experience. Key features include:</p>
+                <a href="algorithm_vis.html" class="text-gray-700 underline hover:text-gray-900">
+                    Full Project
+                </a>
+        </div>
+    </div>
+</section>
+
+    
+        
 
 <!-- Tailwind CSS or custom CSS styling -->
 
